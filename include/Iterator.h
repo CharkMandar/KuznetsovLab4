@@ -19,23 +19,20 @@ enum class States {
 };
 
 
-//bool multiple_points()
-//{
-//    int count = 0;
-//    for (int i = 0; i < exp.size(); i++) {
-//        if (isNumber(exp[i]))
-//            while (!isSign(exp[i]) || i != exp.size()-2) {
-//                if (exp[i] == '.')
-//                    count++;
-//                if (count > 1)
-//                    return 0;
-//                i++;
-//            }
-//        count = 0;
-//
-//    }
-//    return count < 2;
-//}
+bool multiple_points(string exp)
+{
+    int count = 0;
+    for (int i = 1; i < exp.size(); i++) {
+        if (exp[i] == '.' && isdigit(exp[i-1]))
+            count++;
+        else if (count > 1)
+            return 0;
+        else if (exp[i] == '+' || exp[i] == '-' || exp[i] == '/' || exp[i] == '*' || exp[i] == '^' || exp[i] == '(')
+            count = 0;
+
+    }
+    return count < 2;
+}
 
 bool correct_bracket(string exp) {
     int count = 0;

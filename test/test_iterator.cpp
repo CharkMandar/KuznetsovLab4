@@ -29,17 +29,14 @@ TEST(translator, throws_if_brackets_are_incorrect)
 	EXPECT_EQ(0, correct_bracket(expr1));
 }
 
-//TEST(translator, throws_if_number_have_multiple_points)
-//{
-//	std::string expr = { "2.89.12+8-1" };
-//	std::string expr1 = { "2.8912+8-1" };
-//	
-//	analysis test(expr);
-//	analysis test1(expr1);
-//	
-//	EXPECT_EQ(1, test1.multiple_points() );
-//	EXPECT_EQ(0, test.multiple_points());
-//}
+TEST(translator, throws_if_number_have_multiple_points)
+{
+	string expr = { "2.89.12+8-1" };
+	string expr1 = { "2.8912+8-1" };
+	
+	EXPECT_EQ(1, multiple_points(expr1) );
+	EXPECT_EQ(0, multiple_points(expr));
+}
 
 TEST(translator, can_count_simple_expressions)
 {
